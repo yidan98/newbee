@@ -12,13 +12,24 @@ import ltd.newbee.mall.newbeemall.util.ResultGenerator;
 
 @Controller
 public class IndexController {
+
 	@Resource
 	private NewBeeMallIndexConfigService newBeeMallIndexConfigService;
 
-	@GetMapping("/newGoods")
-    @ResponseBody
-    public Result hello() {
+	/*
+	 * @GetMapping("/newGoods")
+	 * 
+	 * @ResponseBody public Result getNew() {
+	 * 
+	 * return ResultGenerator.genSuccessResult(newBeeMallIndexConfigService.
+	 * getConfigGoodsesForIndex(3, 5)); }
+	 */
 
-        return ResultGenerator.genSuccessResult(newBeeMallIndexConfigService.getConfigGoodsesForIndex(3, 5));
-    }
+	@GetMapping("/Goodses")
+	@ResponseBody
+	public Result getGoodses(int configType) {
+
+		return ResultGenerator.genSuccessResult(newBeeMallIndexConfigService.getConfigGoodsesForIndex(configType, 5));
+	}
+
 }
