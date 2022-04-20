@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import ltd.newbee.mall.newbeemall.entity.GoodsCategory;
 import ltd.newbee.mall.newbeemall.entity.IndexConfig;
 import ltd.newbee.mall.newbeemall.entity.NewBeeMallGoods;
 
@@ -11,5 +12,7 @@ public interface IndexConfigMapper {
 
 	List<IndexConfig> findIndexConfigsByTypeAndNum(@Param("configType") int configType, @Param("number") int number);
 
-	List<NewBeeMallGoods> select(List<Long> goodss);
+	List<NewBeeMallGoods> select(List<Long> goodses);
+
+	List<GoodsCategory> category(List<Long> cate);
 }
