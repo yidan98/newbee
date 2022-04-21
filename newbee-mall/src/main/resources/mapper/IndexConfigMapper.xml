@@ -71,33 +71,6 @@
 
 	</select>	
 
-
-
-    
-  <!--   <select id="catagory"
-		resultMap="Map">
-		select * from tb_newbee_mall_goods_catagory
-		<where> 
-		category_level=1
-		</where>>
-		</select>>
-		
-		<select id="catagory"
-		resultMap="Map">
-		select * from tb_newbee_mall_goods_catagory
-		<where> 
-		category_level=2
-		</where>>
-		</select>>
-		
-		<select id="catagory"
-		resultMap="Map">
-		select * from tb_newbee_mall_goods_catagory
-		<where> 
-		category_level=3
-		</where>>
-		</select>> -->
-		
 		
 		
 </mapper> 

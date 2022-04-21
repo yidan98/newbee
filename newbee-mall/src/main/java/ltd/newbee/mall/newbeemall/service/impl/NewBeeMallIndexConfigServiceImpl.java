@@ -8,12 +8,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import ltd.newbee.mall.newbeemall.dao.IndexConfigMapper;
-import ltd.newbee.mall.newbeemall.entity.GoodsCategory;
 import ltd.newbee.mall.newbeemall.entity.IndexConfig;
 import ltd.newbee.mall.newbeemall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.newbeemall.service.NewBeeMallIndexConfigService;
 import ltd.newbee.mall.newbeemall.vo.NewBeeMallGoodsDetailVO;
-import ltd.newbee.mall.newbeemall.vo.NewBeeMallIndexCategoryVO;
 
 @Service
 public class NewBeeMallIndexConfigServiceImpl implements NewBeeMallIndexConfigService {
@@ -54,18 +52,6 @@ public class NewBeeMallIndexConfigServiceImpl implements NewBeeMallIndexConfigSe
 
 		return voList;
 
-	}
-
-	@Override
-	public List<GoodsCategory> getCate() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	@Override
-	public List<NewBeeMallIndexCategoryVO> getCategoriesForIndex() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
 	}
 
 }
