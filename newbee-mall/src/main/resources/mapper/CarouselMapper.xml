@@ -19,8 +19,7 @@
 		select * from tb_newbee_mall_carousel
 		order by carousel_rank desc
 		limit #{number}
-		</select>
-	
+	</select>
 	
 	
 </mapper>
