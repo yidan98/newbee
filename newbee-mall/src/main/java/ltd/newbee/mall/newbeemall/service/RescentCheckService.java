@@ -6,6 +6,6 @@ import ltd.newbee.mall.newbeemall.vo.NewBeeMallGoodsDetailVO;
 
 public interface RescentCheckService {
 
-	List<NewBeeMallGoodsDetailVO> getGoods(int userId, int number);
+	List<NewBeeMallGoodsDetailVO> getGoods(long userId, int number);
 
 }

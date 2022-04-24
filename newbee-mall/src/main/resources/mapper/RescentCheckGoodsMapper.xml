@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ltd.newbee.mall.newbeemall.dao.RescentCheckGoodsMapper">
-<resultMap id="BaseResultMap"
+<!-- <resultMap id="BaseResultMap"
 		type="ltd.newbee.mall.newbeemall.entity.RescentCheckGoods">
 		 <id column="user_id" jdbcType="BIGINT" property="userId"/>
  		<result column="user_id" jdbcType="BIGINT" property="userId"/>
         <result column="check_date" jdbcType="DATE" property="checkDate"/>
-    </resultMap>
+    </resultMap> -->
 
 
-    <select id="userId"  resultMap="BaseResultMap">
-        SELECT user_id,goods_id,chek_date,count(check_date)
-        FROM newbee_mall_db.rescent_check_goods 
-        where user_id = #{userId,jdbcType=BIGINT}
-        group by user_id,goods_id 
-        order by count(check_date) desc;
-         limit #{number}
+    <select id="getGoods"  resultType="ltd.newbee.mall.newbeemall.entity.NewBeeMallGoods">
+        SELECT info.*
+        FROM rescent_check_goods as rescent
+        join tb_newbee_mall_goods_info as info
+        on info.goods_id=rescent.goods_id
+        where user_id = #{userId}
+        group by user_id,rescent.goods_id
+        order by count(check_date) desc
+        limit #{number}
+        
     </select>
 
     

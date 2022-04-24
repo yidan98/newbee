@@ -19,11 +19,11 @@ public class RescentCheckServiceImpl implements RescentCheckService {
 	RescentCheckGoodsMapper rescentCheckGoodsMapper;
 
 	@Override
-	public List<NewBeeMallGoodsDetailVO> getGoods(int userId, int number) {
+	public List<NewBeeMallGoodsDetailVO> getGoods(long userId, int number) {
 		// TODO 自動生成されたメソッド・スタブ
 
 		List<NewBeeMallGoodsDetailVO> voList = new ArrayList<NewBeeMallGoodsDetailVO>();
-		List<NewBeeMallGoods> entityList = rescentCheckGoodsMapper.getGoods(1, number);
+		List<NewBeeMallGoods> entityList = rescentCheckGoodsMapper.getGoods(userId, number);
 
 		if (entityList != null) {
 
@@ -32,6 +32,11 @@ public class RescentCheckServiceImpl implements RescentCheckService {
 				vo.setGoodsId(entity.getGoodsId());
 				vo.setGoodsName(entity.getGoodsName());
 				vo.setOriginalPrice(entity.getOriginalPrice());
+				vo.setGoodsCoverImg(entity.getGoodsCoverImg());
+				vo.setGoodsCarouselList(entity.getGoodsCarouselList());
+				vo.setGoodsDetailContent(entity.getGoodsDetailContent());
+				vo.setGoodsIntro(entity.getGoodsIntro());
+				vo.setSellingPrice(entity.getSellingPrice());
 
 				voList.add(vo);
 			}

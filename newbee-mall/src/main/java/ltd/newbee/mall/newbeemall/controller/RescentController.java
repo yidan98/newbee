@@ -37,7 +37,7 @@ public class RescentController {
 			return ResultGenerator.genFailResult("failed");
 
 		}
-		return ResultGenerator.genSuccessResult(rescentCheckService.getGoods(1, 2));
+		return ResultGenerator.genSuccessResult(rescentCheckService.getGoods(userId, 6));
 
 	}
 

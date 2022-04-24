@@ -10,6 +10,7 @@ public class NewBeeMallGoods {
 	private String goodsName;
 
 	private String goodsIntro;
+	private String[] goodsCarouselList;
 
 	private Long goodsCategoryId;
 
@@ -167,6 +168,14 @@ public class NewBeeMallGoods {
 		this.goodsDetailContent = goodsDetailContent == null ? null : goodsDetailContent.trim();
 	}
 
+	public String[] getGoodsCarouselList() {
+		return goodsCarouselList;
+	}
+
+	public void setGoodsCarouselList(String[] goodsCarouselList) {
+		this.goodsCarouselList = goodsCarouselList;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -188,7 +197,9 @@ public class NewBeeMallGoods {
 		sb.append(", updateUser=").append(updateUser);
 		sb.append(", updateTime=").append(updateTime);
 		sb.append(", goodsDetailContent=").append(goodsDetailContent);
+		sb.append(", goodsCarouselList=").append(goodsCarouselList);
 		sb.append("]");
 		return sb.toString();
 	}
+
 }
