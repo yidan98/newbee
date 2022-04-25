@@ -1,7 +1,5 @@
 package ltd.newbee.mall.newbeemall.service.impl;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,15 +17,15 @@ public class RunRecommendApiHistoryServiceImpl implements RunRecommendApiHistory
 	RunRecommendApiHistoryMapper runRecommendApiHistoryMapper;
 
 	@Override
-	public int insertRunRecommendApiHistory() {
+	public int insertRunRecommendApiHistory(List<RunRecommendApiHistory> list) {
 
-		List<RunRecommendApiHistory> list = new ArrayList<RunRecommendApiHistory>();
-		RunRecommendApiHistory h1 = new RunRecommendApiHistory();
-		h1.setGoodsId(10003l);
-		h1.setRunDate(new Date());
-		list.add(h1);
 		return runRecommendApiHistoryMapper.insertRunRecommendApiHistory(list);
 
+	}
+
+	@Override
+	public List<RunRecommendApiHistory> selectRecCat() {
+		return runRecommendApiHistoryMapper.selectRecCat();
 	}
 
 }

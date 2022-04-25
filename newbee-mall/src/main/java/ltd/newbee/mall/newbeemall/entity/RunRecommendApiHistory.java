@@ -6,6 +6,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class RunRecommendApiHistory {
 	private long goodsId;
+	private long categoryId;
+	private long userId;
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 
 	public long getGoodsId() {
 		return goodsId;
@@ -25,5 +35,14 @@ public class RunRecommendApiHistory {
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date runDate;
+
+	public long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(long categoryId) {
+		// TODO 自動生成されたメソッド・スタブ
+		this.categoryId = categoryId;
+	}
 
 }
