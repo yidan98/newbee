@@ -12,33 +12,6 @@ public class GoodsDetail {
 	private double wrapSize3;
 	private int warranty;
 	private String warrantyUnit;
-	private String size;
-	private String wrap;
-	private String year;
-
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-	public String getSize() {
-		return size;
-	}
-
-	public void setSize(String size) {
-		this.size = size;
-	}
-
-	public String getWrap() {
-		return wrap;
-	}
-
-	public void setWrap(String wrap) {
-		this.wrap = wrap;
-	}
 
 	public int getWarranty() {
 		return warranty;

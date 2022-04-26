@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ltd.newbee.mall.newbeemall.entity.MallUser;
 import ltd.newbee.mall.newbeemall.entity.RunRecommendApiHistory;
 import ltd.newbee.mall.newbeemall.service.CheckUserExistsService;
+import ltd.newbee.mall.newbeemall.service.GoodsImageService;
 import ltd.newbee.mall.newbeemall.service.RescentCheckService;
 import ltd.newbee.mall.newbeemall.service.RunRecommendApiHistoryService;
 import ltd.newbee.mall.newbeemall.util.Result;
@@ -25,6 +26,8 @@ public class RescentController {
 	private RescentCheckService rescentCheckService;
 	@Resource
 	private RunRecommendApiHistoryService runRecommendApiHistoryService;
+	@Resource
+	private GoodsImageService goodsImageService;
 
 	@GetMapping("/user")
 	@ResponseBody
@@ -63,6 +66,14 @@ public class RescentController {
 		} else {
 			return ResultGenerator.genSuccessResult("success");
 		}
+	}
+
+	@GetMapping("/goodsImage")
+	@ResponseBody
+	public Result goodsImage(long goodsId) {
+
+		return ResultGenerator.genSuccessResult(goodsImageService.getGoodsImages(goodsId));
+
 	}
 
 }

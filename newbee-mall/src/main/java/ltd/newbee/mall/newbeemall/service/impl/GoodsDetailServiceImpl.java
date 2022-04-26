@@ -28,13 +28,29 @@ public class GoodsDetailServiceImpl implements GoodsDetailService {
 			GoodsDetailVO vo = new GoodsDetailVO();
 			vo.setColor(s.getColor());
 			vo.setGoodsId(s.getGoodsId());
+			String size = "";
+			String wrap = "";
+			if (s.getSize1() != 0) {
+				size = s.getSize1Name() + s.getSize1();
+			}
+			if (s.getSize2() != 0) {
+				size = size + "*" + s.getSize2Name() + s.getSize2();
 
-			vo.setSize(s.getSize1() + s.getSize1Name() + s.getSizeUnit() + "*" + s.getSize2() + s.getSize2Name()
-					+ s.getSizeUnit() + "*" + s.getSize3() + s.getWrapSize3Name() + s.getSizeUnit());
-			vo.setWarranty(s.getWarranty());
-			vo.setWrap(s.getWrapSize1() + s.getWrapSize1Name() + s.getWrapSizeUnit() + "*" + s.getWrapSize2()
-					+ s.getWrapSize2Name() + s.getWrapSizeUnit() + "*" + s.getWrapSize3() + s.getWrapSize3Name()
-					+ s.getWrapSizeUnit());
+			}
+			if (s.getSize3() != 0) {
+				size = size + "*" + s.getSize3Name() + s.getSize3() + s.getSizeUnit();
+			}
+			vo.setSize(size);
+			if (s.getWrapSize1() != 0) {
+				wrap = s.getWrapSize1Name() + s.getWrapSize1();
+			}
+			if (s.getWrapSize2() != 0) {
+				wrap = wrap + "*" + s.getWrapSize2Name() + s.getWrapSize2();
+			}
+			if (s.getWrapSize3() != 0) {
+				wrap = wrap + "*" + s.getWrapSize3Name() + s.getWrapSize3() + s.getWrapSizeUnit();
+			}
+			vo.setWrap(wrap);
 
 			vo.setYear(s.getWarranty() + s.getWarrantyUnit());
 			voList.add(vo);

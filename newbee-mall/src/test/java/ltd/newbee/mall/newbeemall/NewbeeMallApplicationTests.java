@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ltd.newbee.mall.newbeemall.entity.RunRecommendApiHistory;
+import ltd.newbee.mall.newbeemall.service.GoodsImageService;
 import ltd.newbee.mall.newbeemall.service.RunRecommendApiHistoryService;
 
 @SpringBootTest
@@ -31,6 +32,15 @@ class NewbeeMallApplicationTests {
 		assertEquals(1, cnt);
 	}
 
+	@Resource
+	GoodsImageService goodsImageService;
+
+	@Test
+	void testGoodsImage() {
+		goodsImageService.getGoodsImages(10003);
+	}
+}
+
 //	@Test
 //	void testSelectRecCat() {
 //		List<Long> list = runRecommendApiHistoryService.selectRecCat(6l);
@@ -38,5 +48,3 @@ class NewbeeMallApplicationTests {
 //		assertTrue(list.contains(51l));
 //		assertTrue(list.contains(47l));
 //	}
-
-}
