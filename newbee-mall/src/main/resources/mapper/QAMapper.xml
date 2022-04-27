@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ltd.newbee.mall.newbeemall.dao.QAMapper">
+ <select id="selectQA"  resultType="ltd.newbee.mall.newbeemall.entity.QA">
+
+select q.question_id,q.user_id,q.date,q.contents,a.answer_id,a.employee_id,a.date,a.answer,a.goods_id,count(l.user_id) as count
+from questions as q
+join answer as a on a.question_id=q.question_id
+left join qa_like as l on a.answer_id=l.answer_id
+where q.proved=1 and q.goods_id= #{goodsId}
+group by answer_id order by count desc,l.like_date desc
+
+limit #{number}
+</select>
+ <select id="countTotal" parameterType="int" resultType="int">
+        SELECT count(goods_id) as totalCount FROM answer where goods_id = #{goodsId}
+    </select>
+</mapper>
