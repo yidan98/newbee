@@ -38,8 +38,8 @@ public class GoodsDetailController {
 
 	@GetMapping("/questionAndAnswer")
 	@ResponseBody
-	public Result getQA(int goodsId, int pageNo, int number) {
-		return ResultGenerator.genSuccessResult(qaService.selectQA(goodsId, pageNo, number));
+	public Result getQA(int goodsId, int pageNo, int number, String columnName) {
+		return ResultGenerator.genSuccessResult(qaService.selectQA(goodsId, pageNo, number, columnName));
 
 	}
 }

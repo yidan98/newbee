@@ -6,14 +6,39 @@ public class QA {
 
 	private Integer questionId;
 	private Integer count;
-	private Integer countToal;
+	private Integer totalCount;
+	private Date questionDate;
+	private Date answerDate;
 
-	public Integer getCountToal() {
-		return countToal;
+	private Integer userId;
+	private Date date;
+	private String contents;
+	private Integer answerId;
+	private Integer employeeId;
+	private String answer;
+
+	public Date getQuestionDate() {
+		return questionDate;
 	}
 
-	public void setCountToal(Integer countToal) {
-		this.countToal = countToal;
+	public void setQuestionDate(Date questionDate) {
+		this.questionDate = questionDate;
+	}
+
+	public Date getAnswerDate() {
+		return answerDate;
+	}
+
+	public void setAnswerDate(Date answerDate) {
+		this.answerDate = answerDate;
+	}
+
+	public Integer getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public Integer getCount() {
@@ -79,12 +104,5 @@ public class QA {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-
-	private Integer userId;
-	private Date date;
-	private String contents;
-	private Integer answerId;
-	private Integer employeeId;
-	private String answer;
 
 }

@@ -6,18 +6,18 @@ import java.util.Date;
 public class QAVO implements Serializable {
 	private Integer questionId;
 	private Integer count;
-	private Integer countToal;
+
+	private Integer userId;
+	private Date questionDate;
+	private Date answerDate;
+
+	private String contents;
+	private Integer answerId;
+	private Integer employeeId;
+	private String answer;
 
 	public Integer getCount() {
 		return count;
-	}
-
-	public Integer getCountToal() {
-		return countToal;
-	}
-
-	public void setCountToal(Integer countToal) {
-		this.countToal = countToal;
 	}
 
 	public void setCount(Integer count) {
@@ -38,14 +38,6 @@ public class QAVO implements Serializable {
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public String getContents() {
@@ -80,11 +72,20 @@ public class QAVO implements Serializable {
 		this.answer = answer;
 	}
 
-	private Integer userId;
-	private Date date;
-	private String contents;
-	private Integer answerId;
-	private Integer employeeId;
-	private String answer;
+	public Date getQuestionDate() {
+		return questionDate;
+	}
+
+	public void setQuestionDate(Date questionDate) {
+		this.questionDate = questionDate;
+	}
+
+	public Date getAnswerDate() {
+		return answerDate;
+	}
+
+	public void setAnswerDate(Date answerDate) {
+		this.answerDate = answerDate;
+	}
 
 }

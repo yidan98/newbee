@@ -2,11 +2,9 @@ package ltd.newbee.mall.newbeemall;
 
 import javax.annotation.Resource;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ltd.newbee.mall.newbeemall.service.QAService;
-import ltd.newbee.mall.newbeemall.util.ResultGenerator;
 
 @SpringBootTest
 class NewbeeMallApplicationTests {
@@ -37,12 +35,12 @@ class NewbeeMallApplicationTests {
 
 	QAService qaService;
 
-	@Test
-
-	void testqa() {
-		ResultGenerator.genSuccessResult(qaService.selectQA(10063, 2, 3));
-
-	}
+//	@Test
+//
+//	void testqa() {
+//		ResultGenerator.genSuccessResult(qaService.selectQA(10063, 2, 3,count));
+//
+//	}
 
 }
 

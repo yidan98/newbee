@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import ltd.newbee.mall.newbeemall.entity.QA;
 
 public interface QAMapper {
-	List<QA> selectQA(@Param("goodsId") int goodsId, int pageNo, @Param("number") int number);
+	List<QA> selectQA(@Param("goodsId") long goodsId, int start, @Param("number") int number, String columnName);
 
-	List<QA> countTotal(int currentPage);
+	int totalCount(long goodsId);
+
 }

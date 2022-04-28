@@ -12,43 +12,50 @@ import ltd.newbee.mall.newbeemall.entity.QA;
 import ltd.newbee.mall.newbeemall.service.QAService;
 import ltd.newbee.mall.newbeemall.util.BeanUtil;
 import ltd.newbee.mall.newbeemall.vo.QAVO;
+import ltd.newbee.mall.newbeemall.vo.QAVOFirst;
 
 @Service
 public class QAServiceImpl implements QAService {
 	@Resource
 	QAMapper qaMapper;
+//	List<QA> list = qaMapper.selectQA(goodsId, pageNo, 100);
+//	List<QA> temp = new ArrayList<>();
+//
+//	for (int i = 0; i < list.size(); i++) {
+//
+//		if (i == (pageNo - 1) * number) {
+//
+//			for (int j = i; j < number + i; j++) {
+//				temp.add(list.get(j));
+//
+//			}
+//
+//		}
+//
+//	}
+
+//	List<QAVO> voList = BeanUtil.copyList(temp, QAVO.class);
 
 	@Override
-	public List<QAVO> selectQA(int goodsId, int pageNo, int number) {
+	public List<QAVOFirst> selectQA(long goodsId, int pageNo, int number, String columnName) {
 
-		// TODO 自動生成されたメソッド・スタブ
+		List<QA> list = qaMapper.selectQA(goodsId, (pageNo - 1) * number, number, columnName);
 
-		List<QA> list = qaMapper.selectQA(goodsId, pageNo, 100);
-		List<QA> temp = new ArrayList<>();
-
-		for (int i = 0; i < list.size(); i++) {
-
-			if (i == (pageNo - 1) * number) {
-
-				for (int j = i; j < number + i; j++) {
-					temp.add(list.get(j));
-
-				}
-
-			}
-
+		int currentPage = pageNo;
+		int totalCount = qaMapper.totalCount(goodsId);
+		if (totalCount % number == 0) {
+			int totalPage = (totalCount / number);
 		}
-
-		List<QAVO> voList = BeanUtil.copyList(temp, QAVO.class);
+		int totalPage = (totalCount / number) + 1;
+		List<QAVOFirst> voList = new ArrayList<QAVOFirst>();
+		QAVOFirst vo = new QAVOFirst();
+		vo.setTotalCount(totalCount);
+		vo.setCurrentPage(currentPage);
+		vo.setTotalPage(totalPage);
+		List<QAVO> voList2 = BeanUtil.copyList(list, QAVO.class);
+		vo.setQASecondVOS(voList2);
+		voList.add(vo);
 
 		return voList;
 	}
-
-	@Override
-	public List<QAVO> countTotal(int currentPage) {
-		// TODO 自動生成されたメソッド・スタブ
-
-		return null;
-	}
-
 }
