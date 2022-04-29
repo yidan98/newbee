@@ -43,10 +43,12 @@ public class QAServiceImpl implements QAService {
 
 		int currentPage = pageNo;
 		int totalCount = qaMapper.totalCount(goodsId);
+		int totalPage = 0;
 		if (totalCount % number == 0) {
-			int totalPage = (totalCount / number);
+			totalPage = (totalCount / number);
+		} else {
+			totalPage = (totalCount / number) + 1;
 		}
-		int totalPage = (totalCount / number) + 1;
 		List<QAVOFirst> voList = new ArrayList<QAVOFirst>();
 		QAVOFirst vo = new QAVOFirst();
 		vo.setTotalCount(totalCount);
