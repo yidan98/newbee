@@ -32,15 +32,6 @@ public class RescentController {
 	@GetMapping("/user")
 	@ResponseBody
 	public Result user(long userId) {
-		// MallUser user = checkUserExistsService.checkUserExists(userId);
-//		int count = checkUserExistsService.checkUserExistsReturnCount(userId);
-//		if (count == 0) {
-//			return ResultGenerator.genFailResult("failed");
-//		} else {
-//			return ResultGenerator.genSuccessResult("success");
-//			// List<vo> = xxxService.xxxMethod();
-//			// return List
-//		}
 
 		MallUser user = checkUserExistsService.checkUserExists(userId);
 		if (user == null) {

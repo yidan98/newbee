@@ -2,9 +2,9 @@ package ltd.newbee.mall.newbeemall.service;
 
 import java.util.List;
 
-import ltd.newbee.mall.newbeemall.vo.ReviewFirstVO;
+import ltd.newbee.mall.newbeemall.vo.ReviewVO;
 
 public interface ReviewService {
-	List<ReviewFirstVO> countRating(int goodsId);
+	List<ReviewVO> countRating(Long goodsId);
 
 }

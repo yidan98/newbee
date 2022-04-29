@@ -19,9 +19,8 @@ public class GoodsInfoServiceImpl implements GoodsInfoService {
 
 	@Override
 	public List<GoodsInfoVO> selectInfo() {
-		// TODO 自動生成されたメソッド・スタブ
 //		List<GoodsInfoVO> voList = new ArrayList<>();
-		List<GoodsInfo> list = goodsInfoMapper.selectInfo();
+
 //		for (GoodsInfo s : list) {
 //			GoodsInfoVO vo = new GoodsInfoVO();
 //
@@ -31,6 +30,7 @@ public class GoodsInfoServiceImpl implements GoodsInfoService {
 //
 //		}
 		// copy list
+		List<GoodsInfo> list = goodsInfoMapper.selectInfo();
 		List<GoodsInfoVO> voList = BeanUtil.copyList(list, GoodsInfoVO.class);
 		return voList;
 

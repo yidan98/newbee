@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ltd.newbee.mall.newbeemall.dao.WhetherReviewMapper">
+<insert id="insertReview">
+insert into review (review_id,order_id,nick_name,contents)
+values
+<foreach item="item" collection="list" separator=",">
+	    	(#{item.reviewId}, #{item.orderId}, #{item.nickName}, #{item.contents})
+	 	 </foreach>
+	</insert>
+
+ <select id="getReview"  resultType="ltd.newbee.mall.newbeemall.entity.Review">
+ 	select item.order_id,re.order_id
+	from tb_newbee_mall_order_item as item
+	join tb_newbee_mall_order as o
+	on o.order_id=item.order_id
+	left join review as re
+	on item.order_id=re.order_id
+	and item.goods_id= re.goods_id
+	where re.order_id is null
+	and item.goods_id= #{goodsId}
+	and o.user_id= #{userId}
+</select>
+   
+
+</mapper>

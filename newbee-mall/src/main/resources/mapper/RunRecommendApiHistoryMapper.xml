@@ -7,7 +7,7 @@
 		insert into run_recommend_api_history (category_id,user_id,run_date)
 		values
 		<foreach item="item" collection="list" separator=",">
-	    	(#{item.categoryId},#{item.userId}, #{item.runDate})
+	    	(#{item.categoryId}, #{item.userId}, #{item.runDate})
 	 	 </foreach>
 	</insert>
 	

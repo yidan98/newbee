@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ltd.newbee.mall.newbeemall.service.GoodsDetailService;
 import ltd.newbee.mall.newbeemall.service.GoodsInfoService;
 import ltd.newbee.mall.newbeemall.service.QAService;
+import ltd.newbee.mall.newbeemall.service.ReviewService;
 import ltd.newbee.mall.newbeemall.util.Result;
 import ltd.newbee.mall.newbeemall.util.ResultGenerator;
 
@@ -22,6 +23,8 @@ public class GoodsDetailController {
 	GoodsInfoService goodsInfoService;
 	@Resource
 	QAService qaService;
+	@Resource
+	ReviewService reviewService;
 
 	@GetMapping("/goodsDetail")
 	@ResponseBody
@@ -42,4 +45,12 @@ public class GoodsDetailController {
 		return ResultGenerator.genSuccessResult(qaService.selectQA(goodsId, pageNo, number, columnName));
 
 	}
+
+	@GetMapping("/review")
+	@ResponseBody
+	public Result getReview(long goodsId) {
+		return ResultGenerator.genSuccessResult(reviewService.countRating(goodsId));
+
+	}
+
 }

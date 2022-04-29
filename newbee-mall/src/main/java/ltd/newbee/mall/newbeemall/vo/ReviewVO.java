@@ -1,37 +1,15 @@
-package ltd.newbee.mall.newbeemall.entity;
+package ltd.newbee.mall.newbeemall.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Review {
-
-	private int rating;
+public class ReviewVO implements Serializable {
 	private String nickName;
 	private String title;
-	private String contents;
+	private String content;
 	private Date reviewDate;
 	private int reviewId;
-	private int count;
-	private int orderId;
-
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
-	private String goodsName;
-	private Long goodsId;
-	private int countRating;
-
-	public int getCountRating() {
-		return countRating;
-	}
-
-	public void setCountRating(int countRating) {
-		this.countRating = countRating;
-	}
+	private int rating;
 
 	public int getRating() {
 		return rating;
@@ -58,11 +36,11 @@ public class Review {
 	}
 
 	public String getContent() {
-		return contents;
+		return content;
 	}
 
 	public void setContent(String content) {
-		this.contents = contents;
+		this.content = content;
 	}
 
 	public Date getReviewDate() {
@@ -81,14 +59,6 @@ public class Review {
 		this.reviewId = reviewId;
 	}
 
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
 	public String getGoodsName() {
 		return goodsName;
 	}
@@ -104,5 +74,8 @@ public class Review {
 	public void setGoodsId(Long goodsId) {
 		this.goodsId = goodsId;
 	}
+
+	private String goodsName;
+	private Long goodsId;
 
 }
