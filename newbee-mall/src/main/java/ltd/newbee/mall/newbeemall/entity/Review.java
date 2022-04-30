@@ -61,7 +61,7 @@ public class Review {
 		return contents;
 	}
 
-	public void setContent(String content) {
+	public void setContents(String contents) {
 		this.contents = contents;
 	}
 

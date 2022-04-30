@@ -3,14 +3,14 @@
 <mapper namespace="ltd.newbee.mall.newbeemall.dao.ReviewMapper">
  <select id="selectReview"  resultType="ltd.newbee.mall.newbeemall.entity.Review">
 
-select rating,nick_name,title,content,review_date,r.review_id,count(user_id) as count,goods_name,r.goods_id
-from review as r
-left join review_like as l
-on r.review_id=l.review_id
-left join tb_newbee_mall_order_item as o
-on o.order_id=r.order_id
-where r.goods_id= #{goodsId} AND proved=0
-group by l.review_id order by count desc;
+	select rating,nick_name,title,content,review_date,r.review_id,count(user_id) as count,goods_name,r.goods_id
+	from review as r
+	left join review_like as l
+	on r.review_id=l.review_id
+	left join tb_newbee_mall_order_item as o
+	on o.order_id=r.order_id
+	where r.goods_id= #{goodsId} AND proved=0
+	group by l.review_id order by count desc;
 </select>
 
 </mapper>

@@ -1,6 +1,7 @@
 package ltd.newbee.mall.newbeemall.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -16,9 +17,9 @@ public class WhetherReviewServiceImpl implements WhetherReviewService {
 	WhetherReviewMapper whetherReviewMapper;
 
 	@Override
-	public int insertReview(List<Review> list) {
+	public int insertReview(Map<String, Object> review) {
 
-		return whetherReviewMapper.insertReview(list);
+		return whetherReviewMapper.insertReview(review);
 	}
 
 	@Override
