@@ -23,18 +23,24 @@ public class ReviewRatingServiceImpl implements ReviewRatingService {
 		List<Review> getTotalAndAvePoint = reviewRatingMapper.getTotalAndAvePoint(goodsId);
 		List<Review> getRatingAndNum = reviewRatingMapper.getRatingAndNum(goodsId);
 		int getContentsNum = reviewRatingMapper.getContentsNum(goodsId);
+
 		// 第一层 平均分，评论人数，总评论人数
-		// 将总评论人数加入getTotalAndAvePoint这个List中
+
 		Review r = new Review();
 		r.setContentsNum(getContentsNum);
 		getTotalAndAvePoint.add(r);
 		List<ReviewRatingVO> voList = BeanUtil.copyList(getTotalAndAvePoint, ReviewRatingVO.class);
 
+		ReviewRatingVO vo = new ReviewRatingVO();
+
+//		vo.setContentsNum(getContentsNum);
+//		voList.add(vo);
+
 		// 第二层 评分和评分的人数
 
 		List<ReviewRatingSecondVO> voList2 = BeanUtil.copyList(getRatingAndNum, ReviewRatingSecondVO.class);
-		ReviewRatingVO vo = new ReviewRatingVO();
 		vo.setSecondVO(voList2);
+		voList.add(vo);
 
 		return voList;
 	}
