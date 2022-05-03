@@ -37,9 +37,9 @@ public class RescentController {
 		if (user == null) {
 			return ResultGenerator.genFailResult("failed");
 
+		} else {
+			return ResultGenerator.genSuccessResult(rescentCheckService.getGoods(userId, 6));
 		}
-		return ResultGenerator.genSuccessResult(rescentCheckService.getGoods(userId, 6));
-
 	}
 
 	@GetMapping("/runRecommendApi")

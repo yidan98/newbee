@@ -11,4 +11,6 @@ public interface WhetherReviewMapper {
 
 	int insertReview(Map<String, Object> review);
 
+	long selectMaxReviewId();
+
 }

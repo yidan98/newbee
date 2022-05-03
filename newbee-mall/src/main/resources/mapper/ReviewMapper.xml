@@ -2,15 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ltd.newbee.mall.newbeemall.dao.ReviewMapper">
  <select id="selectReview"  resultType="ltd.newbee.mall.newbeemall.entity.Review">
-
-	select rating,nick_name,title,content,review_date,r.review_id,count(user_id) as count,goods_name,r.goods_id
+<!-- 查找特定商品的3条评论 -->
+	select rating,nick_name,title,contents,review_date,r.review_id,count(user_id) as count,goods_name,r.goods_id
 	from review as r
 	left join review_like as l
 	on r.review_id=l.review_id
 	left join tb_newbee_mall_order_item as o
 	on o.order_id=r.order_id
 	where r.goods_id= #{goodsId} AND proved=0
-	group by l.review_id order by count desc;
+	group by l.review_id order by rating desc,count desc
+	limit 3
 </select>
+
+
+<!-- 表头处评价星级打分 -->
+
+
+<!--   #总评价数量以及平均分 -->
+<select id="getTotalAndAvePoint" resultType="ltd.newbee.mall.newbeemall.entity.Review">
+	select count(review_id) as totalNum,round(avg(rating),1) as average from review where goods_id= #{goodsId}
+
+</select>
+<!-- #有多少人做出了评价打了分还写了评价 -->
+<select id="getContentsNum" resultType="int">
+	select count(contents) as contentsNum from review where goods_id= #{goodsId}
+</select>
+
+<!-- #按照评分排序 显示人数和几颗星 -->
+<select id="getRatingAndNum" resultType="ltd.newbee.mall.newbeemall.entity.Review">
+	select rating,count(rating) as numOfRating from review where goods_id= #{goodsId} 
+	group by rating order by rating desc
+</select> 
+
+
+
+
+
+
+
+
+
 
 </mapper>

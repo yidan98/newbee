@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ltd.newbee.mall.newbeemall.dao.WhetherReviewMapper">
+<!-- 插入数据 -->
 <insert id="insertReview" parameterType="map">
 		insert into review
 		(review_id,
@@ -10,7 +11,12 @@
 		title,
 		contents,
 		goods_id,
-		review_date)
+		review_date,
+		photo1,
+		photo2,
+		photo3,
+		photo4,
+		photo5)
 
 		VALUES(
 		#{reviewId},
@@ -20,10 +26,22 @@
 		#{title},
 		#{contents},
 		#{goodsId},
-		#{reviewDate}
+		#{reviewDate},
+		#{photo1},
+		#{photo2},
+		#{photo3},
+		#{photo4},
+		#{photo5}
 		)
 	</insert>
-
+	<!-- 发番 -->
+	<select id="selectMaxReviewId" resultType="long">
+		select max(review_id) from review
+	</select>
+<!-- 判断是否可以插入数据
+#可以写评价的是 order中存在review中没有的
+#没有购买记录的不可以写评价
+#写过评价的不可以写评价 -->
  <select id="getReview"  resultType="ltd.newbee.mall.newbeemall.entity.Review">
  	select item.order_id,re.order_id
 	from tb_newbee_mall_order_item as item

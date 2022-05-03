@@ -10,6 +10,15 @@ public class ReviewVO implements Serializable {
 	private Date reviewDate;
 	private int reviewId;
 	private int rating;
+	private int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public int getRating() {
 		return rating;
