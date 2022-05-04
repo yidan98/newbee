@@ -30,8 +30,15 @@
 
 <!-- #按照评分排序 显示人数和几颗星 -->
 <select id="getRatingAndNum" resultType="ltd.newbee.mall.newbeemall.entity.Review">
-	select rating,count(rating) as numOfRating from review where goods_id= #{goodsId} 
-	group by rating order by rating desc
+<!-- 	select rating,count(rating) as numOfRating from review where goods_id= #{goodsId} 
+	group by rating order by rating desc -->
+	select (select count(rating)  from review where rating=5 and goods_id= #{goodsId}) as ratingFive,
+(select count(rating)from review where rating=4 and goods_id= #{goodsId} ) as ratingFour,
+(select count(rating)  from review where rating=3 and goods_id= #{goodsId}) as ratingThree,
+(select count(rating)  from review where rating=2 and goods_id= #{goodsId}) as ratingTwo,
+(select count(rating)  from review where rating=1 and goods_id= #{goodsId}) as ratingOne 
+	
+	
 </select> 
 
 

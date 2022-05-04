@@ -9,7 +9,7 @@ public interface ReviewMapper {
 
 	int countRating(long goodsId);
 
-	List<Review> getTotalAndAvePoint(long goodsId);
+	Review getTotalAndAvePoint(long goodsId);
 
 	int getContentsNum(long goodsId);
 
