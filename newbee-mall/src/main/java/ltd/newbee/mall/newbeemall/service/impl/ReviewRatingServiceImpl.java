@@ -19,30 +19,28 @@ public class ReviewRatingServiceImpl implements ReviewRatingService {
 	ReviewMapper reviewRatingMapper;
 
 	@Override
-	public List<ReviewRatingVO> getRating(long goodsId) {
-		List<Review> getTotalAndAvePoint = reviewRatingMapper.getTotalAndAvePoint(goodsId);
+	public ReviewRatingVO getRating(long goodsId) {
+		Review getTotalAndAvePoint = reviewRatingMapper.getTotalAndAvePoint(goodsId);
+		// 第二层是list所以这里写list
 		List<Review> getRatingAndNum = reviewRatingMapper.getRatingAndNum(goodsId);
+		// 这里讲entit转化成第二层的vo
+		List<ReviewRatingSecondVO> voList = BeanUtil.copyList(getRatingAndNum, ReviewRatingSecondVO.class);
+		// 将第一层所需要的数据取出来
 		int getContentsNum = reviewRatingMapper.getContentsNum(goodsId);
+		float ave = getTotalAndAvePoint.getAverage();
+		int total = getTotalAndAvePoint.getTotalNum();
 
 		// 第一层 平均分，评论人数，总评论人数
+		// 将第一层的数据放入vo r中
 
-		Review r = new Review();
+		ReviewRatingVO r = new ReviewRatingVO();
 		r.setContentsNum(getContentsNum);
-		getTotalAndAvePoint.add(r);
-		List<ReviewRatingVO> voList = BeanUtil.copyList(getTotalAndAvePoint, ReviewRatingVO.class);
+		r.setAverage(ave);
+		r.setTotalNum(total);
+		// 第二层 将list放入r中
+		r.setSecondVO(voList);
 
-		ReviewRatingVO vo = new ReviewRatingVO();
-
-//		vo.setContentsNum(getContentsNum);
-//		voList.add(vo);
-
-		// 第二层 评分和评分的人数
-
-		List<ReviewRatingSecondVO> voList2 = BeanUtil.copyList(getRatingAndNum, ReviewRatingSecondVO.class);
-		vo.setSecondVO(voList2);
-		voList.add(vo);
-
-		return voList;
+		return r;
 	}
 
 }
