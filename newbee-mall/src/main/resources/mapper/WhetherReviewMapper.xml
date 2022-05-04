@@ -4,6 +4,90 @@
 <!-- 插入数据 -->
 <insert id="insertReview" parameterType="map">
 		insert into review
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+<if test="reviewId != null">
+	review_id,
+</if>
+<if test="orderId != null">
+	order_id,
+</if>
+<if test="nickName != null">
+	nick_name,
+</if>
+<if test="rating != null">
+	rating,
+</if>
+<if test="title != null">
+	title,
+</if>
+<if test="contents != null">
+	contents,
+</if>
+<if test="goodsId != null">
+	goods_id,
+</if>
+<if test="reviewDate != null">
+	review_date,
+</if>
+<if test="photo1 != null">
+	photo1,
+</if>
+<if test="photo2 != null">
+	photo2,
+</if>
+<if test="photo3 != null">
+	photo3,
+</if>
+<if test="photo4 != null">
+	photo4,
+</if>
+<if test="photo5 != null">
+	photo5
+</if>
+</trim>
+<trim prefix="values (" suffix=")" suffixOverrides=",">
+<if test="reviewId != null">
+	#{reviewId},
+</if>
+<if test="orderId != null">
+	#{orderId},
+</if>
+<if test="nickName != null">
+	#{nickName},
+</if>
+<if test="rating != null">
+	#{rating},
+</if>
+<if test="title != null">
+	#{title},
+</if>
+<if test="contents != null">
+	#{contents},
+</if>
+<if test="goodsId != null">
+	#{goodsId},
+</if>
+<if test="reviewDate != null">
+	#{reviewDate},
+</if>
+<if test="photo1 != null">
+	#{photo1},
+</if>
+<if test="photo2 != null">
+	#{photo2},
+</if>
+<if test="photo3 != null">
+	#{photo3},
+</if>
+<if test="photo4 != null">
+	#{photo4},
+</if>
+<if test="photo5 != null">
+	#{photo5}
+</if>
+</trim>
+
+<!-- 
 		(review_id,
 		order_id,
 		nick_name,
@@ -32,7 +116,8 @@
 		#{photo3},
 		#{photo4},
 		#{photo5}
-		)
+		) -->
+
 	</insert>
 	<!-- 发番 -->
 	<select id="selectMaxReviewId" resultType="long">
