@@ -71,7 +71,7 @@ public class QAServiceImpl implements QAService {
 
 	@Override
 	public int insertQALike(Map<String, Object> QALike) {
-		QALike.remove("likeDate", new Date());
+		QALike.replace("likeDate", new Date());
 		return qaMapper.insertQALike(QALike);
 	}
 }

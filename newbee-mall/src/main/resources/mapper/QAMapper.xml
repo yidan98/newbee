@@ -30,8 +30,8 @@ limit #{start},#{number}
   <insert id="insertQALike" parameterType="map">
 		insert into qa_like
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-<if test="reviewId != null">
-	review_id,
+<if test="answerId != null">
+	answer_id,
 </if>
 <if test="userId != null">
 	user_id,
@@ -41,8 +41,8 @@ limit #{start},#{number}
 </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-<if test="reviewId != null">
-	#{reviewId},
+<if test="answerId != null">
+	#{answerId},
 </if>
 <if test="userId != null">
 	#{userId},
