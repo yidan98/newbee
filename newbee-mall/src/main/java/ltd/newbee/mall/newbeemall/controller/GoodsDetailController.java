@@ -1,10 +1,13 @@
 package ltd.newbee.mall.newbeemall.controller;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ltd.newbee.mall.newbeemall.service.GoodsDetailService;
@@ -43,4 +46,17 @@ public class GoodsDetailController {
 
 	}
 
+	@GetMapping("/qaLikeClick")
+	@ResponseBody
+	public Result qaLike(@RequestBody HashMap<String, Object> likeMap) {
+		int answerId = (int) likeMap.get("answerId");
+		int userId = (int) likeMap.get("userId");
+		int like = qaService.getLikeQA(answerId, userId);
+		if (like != 0) {
+			return ResultGenerator.genFailResult("您已经点击过了，不要重复点赞");
+		} else {
+			return ResultGenerator.genSuccessResult(qaService.insertQALike(likeMap) + "谢谢评价");
+		}
+
+	}
 }

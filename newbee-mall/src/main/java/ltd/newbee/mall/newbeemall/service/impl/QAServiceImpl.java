@@ -1,7 +1,9 @@
 package ltd.newbee.mall.newbeemall.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -59,5 +61,17 @@ public class QAServiceImpl implements QAService {
 		voList.add(vo);
 
 		return voList;
+	}
+
+	@Override
+	public int getLikeQA(int answerId, int userId) {
+
+		return qaMapper.getLikeQA(answerId, userId);
+	}
+
+	@Override
+	public int insertQALike(Map<String, Object> QALike) {
+		QALike.remove("likeDate", new Date());
+		return qaMapper.insertQALike(QALike);
 	}
 }

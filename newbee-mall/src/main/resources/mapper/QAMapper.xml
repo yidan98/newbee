@@ -16,4 +16,46 @@ limit #{start},#{number}
  <select id="totalCount" parameterType="Long" resultType="int">
         SELECT count(answer_id) as totalCount FROM answer where goods_id = #{goodsId}
     </select>
+    
+    
+    
+<!--     判断是否可以插入数值 -->
+    <select id="getLikeQA"  resultType="int">	
+	select count(*) from qa_like where answer_id= #{answerId} and user_id= #{userId}
+	
+</select>
+
+<!-- 插入数据 
+ -->   
+  <insert id="insertQALike" parameterType="map">
+		insert into qa_like
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+<if test="reviewId != null">
+	review_id,
+</if>
+<if test="userId != null">
+	user_id,
+</if>
+<if test="likeDate != null">
+	like_date
+</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+<if test="reviewId != null">
+	#{reviewId},
+</if>
+<if test="userId != null">
+	#{userId},
+</if>
+<if test="likeDate != null">
+	#{likeDate}
+</if>
+</trim>
+    </insert>
+    
+    
+    
+    
+    
+    
 </mapper>
