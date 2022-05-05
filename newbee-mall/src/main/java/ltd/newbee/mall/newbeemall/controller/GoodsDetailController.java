@@ -55,7 +55,13 @@ public class GoodsDetailController {
 		if (like != 0) {
 			return ResultGenerator.genFailResult("您已经点击过了，不要重复点赞");
 		} else {
-			return ResultGenerator.genSuccessResult(qaService.insertQALike(likeMap) + "谢谢评价");
+			int r = qaService.insertQALike(likeMap);
+			if (r == 1) {
+				return ResultGenerator.genSuccessResult("谢谢评价");
+			} else {
+				return ResultGenerator.genSuccessResult("点赞失败");
+			}
+
 		}
 
 	}

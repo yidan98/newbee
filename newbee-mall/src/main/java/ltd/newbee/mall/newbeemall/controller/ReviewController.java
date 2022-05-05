@@ -54,7 +54,15 @@ public class ReviewController {
 		if (like != 0) {
 			return ResultGenerator.genFailResult("您已经点击过了，不要重复点赞");
 		} else {
-			return ResultGenerator.genSuccessResult(reviewLikeItService.insertLike(likeMap) + "谢谢点赞");
+			// reviewLikeItService.insertLike(likeMap)成功的时候数值显示为1
+			int r = reviewLikeItService.insertLike(likeMap);
+			if (r > 0) {
+				return ResultGenerator.genSuccessResult("谢谢点赞");
+
+			} else {
+				return ResultGenerator.genSuccessResult("点赞失败");
+			}
+
 //			reviewLikeItService.insertLike(likeMap)
 		}
 
