@@ -65,4 +65,18 @@ public class GoodsDetailController {
 		}
 
 	}
+
+	@GetMapping("/qaInsert")
+	@ResponseBody
+	public Result qaInsert(@RequestBody HashMap<String, Object> map) {
+
+		int r = qaService.insertQA(map);
+		if (r == 1) {
+			return ResultGenerator.genSuccessResult("谢谢你的提问");
+		} else {
+			return ResultGenerator.genSuccessResult("提问点赞失败");
+		}
+
+	}
+
 }

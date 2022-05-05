@@ -25,7 +25,7 @@ limit #{start},#{number}
 	
 </select>
 
-<!-- 插入数据 
+<!-- 插入喜欢的 数据
  -->   
   <insert id="insertQALike" parameterType="map">
 		insert into qa_like
@@ -52,6 +52,21 @@ limit #{start},#{number}
 </if>
 </trim>
     </insert>
+   <!--  插入问问题的数据 -->
+   <insert id="insertQA" parameterType="map">
+   insert into questions(user_id,date,goods_id,contents)
+    values( #{userId}, #{date}, #{goodsId}, #{contents})
+   
+   </insert>
+   
+   
+   
+   
+   
+   
+   
+   
+   
     
     
     
