@@ -14,4 +14,6 @@ public interface QAMapper {
 
 	int insertQALike(Map<String, Object> QALike);
 
+	int insertQA(Map<String, Object> QAInsert);
+
 }
