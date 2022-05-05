@@ -32,6 +32,16 @@ public class Review {
 	private int ratingTwo;
 	private int ratingOne;
 
+	private int num;
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public int getRatingFive() {
 		return ratingFive;
 	}
