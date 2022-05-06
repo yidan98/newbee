@@ -32,7 +32,7 @@
 <select id="getRatingAndNum" resultType="ltd.newbee.mall.newbeemall.entity.Review">
 
 
-select rating,count(rating) as num from review where rating=5 and goods_id= #{goodsId}
+select 5 as rating,count(rating) as num from review where rating=5 and goods_id= #{goodsId}
 union all
 select 4,count(rating)  from review where rating=4 and goods_id= #{goodsId}
 union all
